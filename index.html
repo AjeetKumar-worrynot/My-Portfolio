@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #96C5BD; /* Dark Grayish-Brown */
+            color: #000000; /* Light Gray text */
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #182039; /* Light Gray */
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgb(29, 44, 97);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: hsl(0, 3%, 77%); /* Dark Grayish-Brown */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #e7e5e5; /* Dark Grayish-Brown */
+            font-size: 1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #F15B22; /* Light Gray text */
+            transform: scale(1.1);
+        }
+
+        .profile-container {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1.5rem;
+        
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+          
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-photo:active {
+            transform: scale(1);
+        }
+
+        .profile-text {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #d82323; /* Light Gray text */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+            line-height: 1.6;
+            margin-top: 1.5rem;
+        }
+
+        .highlight {
+            color: #da0808; /* Dark Grayish-Brown highlight */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #about h2 {
+                font-size: 2.5rem;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #182039; /* Dark Grayish-Brown */
+            margin: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #DB7049; /* Light Gray */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        .container {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            padding: 2rem;
+            background: #182039; /* Dark Grayish-Brown */
+            border-radius: 15px;
+        }
+
+        .card {
+            background: #bed2d0; /* Light Gray background */
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+#skills {
+    background-color: #182039;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #182039;
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #DB7049;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Card Container */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #bed2d0;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Heading Styling */
+.card h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Icons in the Card */
+.card p {
+    font-size: 1.2rem;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 500;
+}
+
+.card p i,
+.card p img {
+    font-size: 1.8rem;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect on Icons */
+.card p i:hover,
+.card p img:hover {
+    transform: scale(1.2);
+}
+
+/* Icon Size Adjustment */
+.icon {
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card p {
+        font-size: 1rem;
+        gap: 15px;
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        height: 25px;
+        width: 25px;
+    }
+}
+        
+        /* Heading Styling */
+        .card h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        
+        .card h3 i {
+            font-size: 24px;
+            color: #f15b22;
+            margin-right: 8px;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            color: #182039;
+            background: #DB7049; /* Dark Grayish-Brown */
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        a.button:hover {
+            background: #2a2a2a; /* Slightly darker shade */
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .education-card {
+            background: #bed2d0; /* Light Gray background */
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-card h3 {
+            color: #30302F; /* Dark Grayish-Brown text */
+        }
+
+        .education-card p {
+            color: #888; /* Light gray text for descriptions */
+        }
+
+        .education-card .degree {
+            font-weight: bold;
+        }
+
+        /* Contact Section Styling */
+        #contact {
+            background:  #182039; /* Light Gray to Dark Grayish-Brown gradient */
+            color: #30302F; /* Dark Grayish-Brown text */
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #DB7049; /* Dark Grayish-Brown */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .contact-card {
+            background: #bed2d0; /* Light Gray card background */
+            padding: 1.5rem;
+            border-radius: 12px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        }
+        .highlight2 {
+            color: #0a0f99; /* Highlight color */
+        }
+
+/*     contact  icons section*/
+        .icon-link {
+            color: #240cde; /* Icon color */
+            font-size: 2rem; /* Icon size */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .icon-link:hover {
+            color: #F15B22; /* Hover color */
+            transform: scale(1.2); /* Slight enlargement on hover */
+        }
+        
+        .icon-link2 {
+            color: #000000; /* Icon color */
+            font-size: 2rem; /* Icon size */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .icon-link2:hover {
+            color: #F15B22; /* Hover color */
+            transform: scale(1.2); /* Slight enlargement on hover */
+        }
+
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            background: #182039;
+        }
+
+        .footer {
+            background: #96C5BD; /* Light Gray footer background */
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 -4px 6px rgba(206, 203, 203, 0.1);
+        }
+
+        .footer p {
+            font-size: 1rem;
+            color: #000000; /* Dark Grayish-Brown text */
+        }
+
+        /* Animation Definitions */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+
+ /* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+#about {
+    background-color: #182039; /* Dark Grayish-Brown */
+    color: #F4F4F4; /* Light Gray text */
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif; /* Using Poppins for a modern, clean font */
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #DB7049; /* Light Gray */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.about-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #D0D0D0; /* Light gray color for paragraphs */
+    text-align: justify; /* Makes the text align better */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    color: #F79A8B; /* Highlight color */
+}
+.projects-paragraph{
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d11010;}
+button {
+    padding: 1rem 2rem;
+    background-color: #F79A8B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #E94F24; /* Slightly darker shade on hover */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+ <!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+    <p class="about-paragraph">I am a dedicated and detail-oriented <span class="highlight">Software Developer</span> with a passion for creating innovative and efficient solutions. Driven by curiosity and a commitment to excellence, I focus on transforming complex ideas into intuitive, user-friendly applications. I strive to produce clean, maintainable code that not only meets but exceeds expectations.</p>
+    <p class="about-paragraph">With a <span class="highlight">Strong Problem-Solving</span> mindset and a continuous desire to learn, I excel in dynamic environments where creative thinking and adaptability are essential. I am always exploring new technologies and approaches to ensure my skills remain current and relevant.</p>
+    <p class="about-paragraph"><span class="highlight">My Goal</span> is to contribute to meaningful projects that make a lasting impact. Whether enhancing user experience, optimizing system performance, or solving real-world challenges, I am dedicated to building software that empowers users and drives progress.</p>
+    <a href="cv.pdf" class="button" download>Download CV</a>
+</section>
+
+
+<section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="container">
+        <div class="card">
+            <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+            <p>
+                <i class="fab fa-java"></i> Java &nbsp;
+                <i class="fab fa-js-square"></i> JavaScript &nbsp;
+                <i class="fas fa-database"></i> SQL &nbsp;
+                <i class="fab fa-react"></i> React.js &nbsp;
+                <img src="spring-boot-logo.png" alt="Spring Boot" class="icon"> Spring Boot &nbsp;
+                <i class="fab fa-git"></i> Git &nbsp;
+                <img src="maven-logo.png" alt="Maven" class="icon"> Maven &nbsp;
+                <img src="postman-logo.png" alt="Postman" class="icon"> Postman &nbsp;
+                <img src="intellij-logo.png" alt="IntelliJ IDEA" class="icon"> IntelliJ IDEA &nbsp;
+                <img src="mysql-logo.png" alt="MySQL" class="icon"> MySQL &nbsp;
+                <img src="vs-code-logo.png" alt="VS Code" class="icon"> VS Code
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="container">
+            <div class="card">
+                <h3><i class="fas fa-parking"></i>Smart Park Connect Application</h3>
+                <p class="project-paragraph">A full-stack web application for an Smart Park Connect application to offer a seamless parking experience by connecting user to available parking spots in real-time.</p>
+                <a href="https://ajeetkumar-worrynot.github.io/Smart-Park-Connect/" class="button">View Project</a>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-table"></i>Quick Table Application</h3>
+                <p>QuickTable is a seamless restaurant table reservation application designed to enhance the dining experience for customers and streamline operations for restaurant owners</p>
+                <a href="https://ajeetkumar-worrynot.github.io/Restaurant-application/" class="button">View Project</a>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-wrench"></i>On Spot Mechanic Application</h3>
+                <p>Spot Mechanic Application that allows users to book a mechanic on the spot for immediate service or for future appointments.</p>
+                <a href="https://ajeetkumar-worrynot.github.io/on-spot-mechanic/" class="button">View Project</a>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-chalkboard-teacher"></i>Academic Scheduling And Enrollment System </h3>
+                <p>developed the Academic Scheduling and Enrollment System to automate      and simplify the course registration and scheduling process for students and academic staff.</p>
+                <a href="https://ajeetkumar-worrynot.github.io/Academic-Schedeling-And-Enrollment/" class="button">View Project</a>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-user"></i>My Portfolio</h3>
+                <p>Designed and developed a personal portfolio website to showcase professional projects and achievements.</p>
+                <a class="button">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+<section id="education">
+    <h2>Education</h2>
+    <div class="education-card">
+        <h3><i class="fas fa-graduation-cap"></i> Bachelor of Engineering in Computer Science</h3>
+        <p class="degree">Mount Zion College Of Engineering And Technology</p>
+        <p>Graduated: 2023</p></div>
+        <div class="education-card"> <h3><i class="fas fa-graduation-cap"></i> Diploma In ECE</h3>
+            <p class="degree">NSPC </p>
+            <p>Graduated: 2020</p></div>
+       
+</section>
+
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="education-card">
+          
+            <img src="java-logo.png" alt="VS Code" class="icon">
+            <h3>Java Full Stack Developer Course</h3>
+            <p>Completed in 2024</p>
+        </div>
+        <div class="education-card">
+            <h3>Completion on A Gesture Based Tool For Sterile Browsing of Radiology ImageProject <span class="highlight2">(IBM)</span> 
+                </h3>
+            <p></p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <div class="contact-card">
+                <i class="fa fa-phone"></i>
+                <p>+91 6369102628</p>
+            </div>
+            <div class="contact-card">
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:ajeethr73@gmail.com">ajeethr73@gmail.co</p>
+            </div>
+            <div class="contact-card">
+                <p ><a href="https://www.linkedin.com/in/ajeethkumar-r-576083233/" target="_blank" class="icon-link" ><i class="fab fa-linkedin"></i></a></p>
+            </div>
+
+            <div class="contact-card">
+                <p><a href="https://github.com/AjeetKumar-worrynot" target="_blank" class="icon-link2" ><i class="fab fa-github"></i></a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>2024 Ajeeth Kumar. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
