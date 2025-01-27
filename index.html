@@ -572,6 +572,30 @@ button:hover {
     from { transform: translateX(-100px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
+/* Define the animation for elements coming into view */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add transition for sections */
+.section {
+    opacity: 0;
+    transform: translateY(50px); /* Start position offscreen */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth fade and slide */
+}
+
+/* When section is active, make it visible */
+.section.active {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+}
 
 
 
@@ -589,9 +613,8 @@ button:hover {
         </nav>
     </header>
 
-    <!-- About Section -->
  <!-- About Section -->
-<section id="about">
+<section id="about" class="section">
     <h2>About Me</h2>
     <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
     <p class="about-paragraph">I am a dedicated and detail-oriented <span class="highlight">Software Developer</span> with a passion for creating innovative and efficient solutions. Driven by curiosity and a commitment to excellence, I focus on transforming complex ideas into intuitive, user-friendly applications. I strive to produce clean, maintainable code that not only meets but exceeds expectations.</p>
@@ -601,7 +624,7 @@ button:hover {
 </section>
 
 
-<section id="skills">
+<section id="skills" class="section">
     <h2>Technical Skills</h2>
     <div class="container">
         <div class="card">
@@ -626,7 +649,7 @@ button:hover {
 
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="container">
             <div class="card">
@@ -658,7 +681,7 @@ button:hover {
     </section>
 
     <!-- Education Section -->
-<section id="education">
+<section id="education" class="section">
     <h2>Education</h2>
     <div class="education-card">
         <h3><i class="fas fa-graduation-cap"></i> Bachelor of Engineering in Computer Science</h3>
@@ -667,15 +690,15 @@ button:hover {
         <div class="education-card"> <h3><i class="fas fa-graduation-cap"></i> Diploma In ECE</h3>
             <p class="degree">NSPC </p>
             <p>Graduated: 2020</p></div>
-       
+
 </section>
 
 
     <!-- Certifications Section -->
-    <section id="certifications">
+    <section id="certifications" class="section">
         <h2>Certifications</h2>
         <div class="education-card">
-          
+    
             <img src="java-logo.png" alt="VS Code" class="icon">
             <h3>Java Full Stack Developer Course</h3>
             <p>Completed in 2024</p>
@@ -688,7 +711,7 @@ button:hover {
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="section">
         <h2>Contact</h2>
         <div class="contact-container">
             <div class="contact-card">
@@ -708,7 +731,36 @@ button:hover {
             </div>
         </div>
     </section>
-    <script src="script.js"></script>
+    
+    <script>
+        // Function to check if an element is in the viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
+}
+
+// Get all sections you want to animate
+const sections = document.querySelectorAll('.section');
+
+// Function to handle scroll events and add active class to sections
+function handleScroll() {
+    sections.forEach(section => {
+        if (isElementInViewport(section)) {
+            section.classList.add('active');
+        } else {
+            section.classList.remove('active');
+        }
+    });
+}
+
+// Listen for the scroll event
+window.addEventListener('scroll', handleScroll);
+
+// Initial check in case the page is already scrolled
+handleScroll();
+
+    </script>
+    
 
     <!-- Footer -->
     <footer class="footer">
